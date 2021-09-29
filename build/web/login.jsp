@@ -18,18 +18,18 @@
     </head>
     <body>
         <div class="cuerpoFormulario" id="cuerpoFormulario">
-            <form class="formulario" id="formulario">
+            <form class="formulario" id="formulario" method="post" action="ingresando">
                 <h1> INICIE SESION </h1>
                 <p>Usuario:</p>
                 <div class="texto">
-                    <input type="text" class="txt" id="txtUsuario" required="">
+                    <input type="text" class="txt" id="txtUsuario" required="" name="txtUsuario">
                 </div>
                 <p>Contraseña:</p>
                 <div class="texto">
-                    <input type="password" class="txt" id="txtContraseña" required="">
+                    <input type="password" class="txt" id="txtContrasena" required="" name="txtContrasena">
                 </div>
                 <br>
-                <input type="submit" value="Iniciar Sesion" class="btn">
+                <input type="submit" value="Iniciar Sesion" class="btn" name="iniciar">
                 <input type="button" value="Borrar Datos" class="btn" onclick="resetearLogin()">
             </form>
         </div>

@@ -11,17 +11,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import jdk.nashorn.internal.runtime.regexp.joni.exception.JOniException;
 
 /**
  *
  * @author Cristian Castro
  */
-public class ControladorRegister extends HttpServlet {
+public class CotroladorLogin extends HttpServlet {
 
     UsuarioCrud c = new UsuarioCrud();
     Usuario u = new Usuario();
-    boolean v;
+    int r;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,48 +35,32 @@ public class ControladorRegister extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
-        String boton = request.getParameter("btnRegistrar");
-
-        if (boton.equals("Registrar")) {
-            u.setNombre(request.getParameter("txtNombre"));
-            u.setUserName(request.getParameter("txtUserName"));
-            u.setCorreo(request.getParameter("txtCorreo"));
-            u.setPassword(request.getParameter("txtContrasena"));
-            v = c.agregar(u);
-            if (v) {
-                
-                request.getRequestDispatcher("index.html").forward(request, response);
+        String accion = request.getParameter("iniciar");
+        if (accion.equals("Iniciar Sesion")) {
+            String user = request.getParameter("txtUsuario");
+            String pass = request.getParameter("txtContrasena");
+            System.out.println(user);
+            System.out.println(pass);
+            u.setUserName(user);
+            u.setPassword(pass);
+            r = c.validar(u);
+            System.out.println(r);
+            if (r == 1) {
+                request.getRequestDispatcher("tarcine.html").forward(request, response);
             } else {
-                
                 request.getRequestDispatcher("index.html").forward(request, response);
             }
         }
         /* TODO output your page here. You may use following sample code. */
- 
-//        u.setNombre(request.getParameter("txtNombre"));
-//        u.setUserName(request.getParameter("txtUserName"));
-//        u.setCorreo(request.getParameter("txtCorreo"));
-//        u.setPassword(request.getParameter("txtContrasena"));
-//
-//        out.println("<!DOCTYPE html>");
-//        out.println("<html>");
-//        out.println("<head>");
-//        out.println("</head>");
-//        out.println("<body>");
-//        out.println("</body>");
-//        out.println("<script type=\"text/javascript\">");
-//        boolean v = c.agregar(u);
-//        if(v){
-//            out.print("alert('el usuario de ha registrado con exito')");
-//            out.print("location='index.html'");
-//        }else{
-//            out.print("alert('el usuario no se ha registrado con exito')");
-//            out.print("location='index.html'");
-//        }
-//        
-//        out.println("</script>");
-//        out.println("</html>");
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet CotroladorLogin</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet CotroladorLogin at " + request.getContextPath() + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

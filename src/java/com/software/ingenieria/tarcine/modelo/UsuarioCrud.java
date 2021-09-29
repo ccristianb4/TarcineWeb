@@ -3,13 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.software.ingenieria.tarcine.modelo;
+
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class UsuarioCrud implements Validar {
 
     Connection con;
     ConexionSQLServer base = new ConexionSQLServer();
-    
+
     PreparedStatement ps;
     ResultSet rs;
     int resultado;
@@ -73,7 +75,12 @@ public class UsuarioCrud implements Validar {
         while (ValidarID(iden)) {
             iden = usu.getiD();
         }
+
         try {
+            if (validarCorreo(usu.getCorreo()) || validarUserName(usu.getUserName())) {
+                throw new Exception();
+            }
+            System.out.println("gaducygauydggdagdaui");
             con = base.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, iden);
@@ -86,10 +93,43 @@ public class UsuarioCrud implements Validar {
             ps.close();
             rs.close();
             registrado = true;
-
         } catch (Exception e) {
             registrado = false;
         }
         return registrado;
+    }
+
+    public boolean validarCorreo(String correo) {
+        boolean existe = false;
+        String sql = "SELECT Correo FROM Registro_usuario WHERE Correo=?";
+        try {
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, correo);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                existe = true;
+                break;
+            }
+        } catch (Exception e) {
+        }
+        return existe;
+    }
+
+    public boolean validarUserName(String user) {
+        boolean existe = false;
+        String sql = "SELECT Username FROM Registro_usuario WHERE Username=?";
+        try {
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, user);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                existe = true;
+                break;
+            }
+        } catch (Exception e) {
+        }
+        return existe;
     }
 }
