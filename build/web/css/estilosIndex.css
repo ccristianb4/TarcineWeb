@@ -1,0 +1,68 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 29/09/2021, 5:21:44 p. m.
+    Author     : Cristian Castro
+*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url(../imagenes/fondoBlanco.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
+}
+.menu{
+    padding: 20px;
+    text-align: center;
+    border-style: none solid solid solid;
+    border-radius: 0px 0px 50px 50px;
+    background: rgba(246,41,12,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(246,41,12,1) 0%, rgba(246,41,12,1) 6%, rgba(241,111,92,1) 35%, rgba(248,80,50,1) 47%, rgba(240,47,23,1) 66%, rgba(240,47,23,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(246,41,12,1)), color-stop(6%, rgba(246,41,12,1)), color-stop(35%, rgba(241,111,92,1)), color-stop(47%, rgba(248,80,50,1)), color-stop(66%, rgba(240,47,23,1)), color-stop(100%, rgba(240,47,23,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(246,41,12,1) 0%, rgba(246,41,12,1) 6%, rgba(241,111,92,1) 35%, rgba(248,80,50,1) 47%, rgba(240,47,23,1) 66%, rgba(240,47,23,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(246,41,12,1) 0%, rgba(246,41,12,1) 6%, rgba(241,111,92,1) 35%, rgba(248,80,50,1) 47%, rgba(240,47,23,1) 66%, rgba(240,47,23,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(246,41,12,1) 0%, rgba(246,41,12,1) 6%, rgba(241,111,92,1) 35%, rgba(248,80,50,1) 47%, rgba(240,47,23,1) 66%, rgba(240,47,23,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(246,41,12,1) 0%, rgba(246,41,12,1) 6%, rgba(241,111,92,1) 35%, rgba(248,80,50,1) 47%, rgba(240,47,23,1) 66%, rgba(240,47,23,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6290c', endColorstr='#f02f17', GradientType=1 );
+    /*    background: rgba(183,222,237,1);
+        background: -moz-radial-gradient(center, ellipse cover, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(113,206,239,1) 28%, rgba(33,180,226,1) 58%, rgba(33,180,226,1) 100%);
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(183,222,237,1)), color-stop(6%, rgba(183,222,237,1)), color-stop(28%, rgba(113,206,239,1)), color-stop(58%, rgba(33,180,226,1)), color-stop(100%, rgba(33,180,226,1)));
+        background: -webkit-radial-gradient(center, ellipse cover, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(113,206,239,1) 28%, rgba(33,180,226,1) 58%, rgba(33,180,226,1) 100%);
+        background: -o-radial-gradient(center, ellipse cover, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(113,206,239,1) 28%, rgba(33,180,226,1) 58%, rgba(33,180,226,1) 100%);
+        background: -ms-radial-gradient(center, ellipse cover, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(113,206,239,1) 28%, rgba(33,180,226,1) 58%, rgba(33,180,226,1) 100%);
+        background: radial-gradient(ellipse at center, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(113,206,239,1) 28%, rgba(33,180,226,1) 58%, rgba(33,180,226,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#21b4e2', GradientType=1 );*/
+}
+.menu ul li a{
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+}
+.menu ul li{
+    font-size: 25px;
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+    border-style: solid;
+    margin-right: 30px;
+    border-radius: 30px;
+    background: rgba(0,0,0, 0.4);
+    box-shadow: 0px 0px 10px white;
+    transition: all .5s;
+}
+.menu ul li:hover{
+    transition: all .5s;
+    box-shadow: 0px 0px 10px 6px white;
+    background: rgba(0,0,0, 0.9);
+    transform: translate(0px,-5px);
+}
