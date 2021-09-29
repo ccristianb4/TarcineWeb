@@ -4,7 +4,6 @@
  */
 package com.software.ingenieria.tarcine.controlador;
 
-import com.software.ingenieria.tarcine.modelo.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,17 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import sun.font.TrueTypeFont;
 
 /**
  *
  * @author Cristian Castro
  */
-public class CotroladorLogin extends HttpServlet {
-
-    UsuarioCrud c = new UsuarioCrud();
-    Usuario u = new Usuario();
-    int r;
+public class ControladorCerrarSesion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,33 +30,10 @@ public class CotroladorLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        String accion = request.getParameter("iniciar");
-        if (accion.equals("Iniciar Sesion")) {
-            String user = request.getParameter("txtUsuario");
-            String pass = request.getParameter("txtContrasena");
-            u.setUserName(user);
-            u.setPassword(pass);
-            r = c.validar(u);
-            if (r == 1) {
-                HttpSession sesion = request.getSession();
-                sesion.setAttribute("nombre", user);
-                sesion.setAttribute("txtcorreo", c.getCorreo(user));
-                request.getRequestDispatcher("tarcinePrincipal.jsp").forward(request, response);
-            } else {
-                request.getRequestDispatcher("index.html").forward(request, response);
-            }
-        }
-        /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet CotroladorLogin</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet CotroladorLogin at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
+        HttpSession sesion = request.getSession();
+        sesion.removeAttribute("nombre");
+        sesion.removeAttribute("txtcorreo");
+        response.sendRedirect("index.html");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

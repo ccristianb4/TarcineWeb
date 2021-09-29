@@ -8,6 +8,10 @@
         <servlet-name>CotroladorLogin</servlet-name>
         <servlet-class>com.software.ingenieria.tarcine.controlador.CotroladorLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorCerrarSesion</servlet-name>
+        <servlet-class>com.software.ingenieria.tarcine.controlador.ControladorCerrarSesion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorRegister</servlet-name>
         <url-pattern>/registrando</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>CotroladorLogin</servlet-name>
         <url-pattern>/ingresando</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCerrarSesion</servlet-name>
+        <url-pattern>/CerrarSesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

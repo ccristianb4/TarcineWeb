@@ -80,7 +80,7 @@ public class UsuarioCrud implements Validar {
             if (validarCorreo(usu.getCorreo()) || validarUserName(usu.getUserName())) {
                 throw new Exception();
             }
-            System.out.println("gaducygauydggdagdaui");
+            
             con = base.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, iden);
@@ -131,5 +131,22 @@ public class UsuarioCrud implements Validar {
         } catch (Exception e) {
         }
         return existe;
+    }
+    
+    public String getCorreo(String user){
+        String correo = "";
+        String sql = "SELECT Correo FROM Registro_usuario WHERE Username=?";
+        try {
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, user);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                correo = rs.getString("Correo");
+                break;
+            }
+        } catch (Exception e) {
+        }
+        return correo;
     }
 }
