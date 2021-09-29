@@ -29,19 +29,20 @@
                 <label>UserName:</label> <input type="text" class="txt" id="txtUserName" required="">
                 <br>
                 <br>
-                <label>Correo electronico:</label> <input type="email" class="txt" id="txtCorreo" required="">
+                <label>Correo electronico:</label> <input type="email" class="txt" id="txtCorreo" required="" onkeyup="validarEmail()"><span class="labelError" id="emailOK"></span>
                 <br>
                 <br>
-                <label>Contraseña:</label> <input type="password" class="txt" id="txtContrasena" required="">
-                <label>Repetir Contraseña:</label> <input type="password" class="txt" id="txtContrasena2" required="">
+                <label>Contraseña:</label> <input type="password" class="txt" id="txtContrasena" required="" onkeyup="validarContrasena()">
+                <label>Repetir Contraseña:</label> <input type="password" class="txt" id="txtContrasena2" required="" onkeyup="validarContrasena()">
                 <br>
                 <br>
                 <label class="aviso" id="aviso">--------</label>
                 <br>
                 <br>
                 <input type="submit" value="Registrar" class="btn" id="btnRegistrar">
-                <input type="button" value="Borrar Datos" class="btn" id="btnBorrar">
+                <input type="button" value="Borrar Datos" class="btn" id="btnBorrar" onclick="borrarDatosRegistro()">
             </form>
         </div>
     </body>
+    <script src="js/funcionesRegistro.js"></script>
 </html>

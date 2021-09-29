@@ -30,8 +30,9 @@
                 </div>
                 <br>
                 <input type="submit" value="Iniciar Sesion" class="btn">
-                <input type="button" value="Borrar Datos" class="btn">
+                <input type="button" value="Borrar Datos" class="btn" onclick="resetearLogin()">
             </form>
         </div>
     </body>
+    <script src="js/funcionesLogin.js"></script>
 </html>
