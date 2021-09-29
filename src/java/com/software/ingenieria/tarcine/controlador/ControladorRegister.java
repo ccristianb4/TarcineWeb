@@ -4,6 +4,7 @@
  */
 package com.software.ingenieria.tarcine.controlador;
 
+import com.software.ingenieria.tarcine.modelo.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,6 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  * @author Cristian Castro
  */
 public class ControladorRegister extends HttpServlet {
+
+    UsuarioCrud c = new UsuarioCrud();
+    Usuario u = new Usuario();
+    boolean v;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,17 +35,46 @@ public class ControladorRegister extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+
+        String boton = request.getParameter("btnRegistrar");
+
+        if (boton.equals("Registrar")) {
+            u.setNombre(request.getParameter("txtNombre"));
+            u.setUserName(request.getParameter("txtUserName"));
+            u.setCorreo(request.getParameter("txtCorreo"));
+            u.setPassword(request.getParameter("txtContrasena"));
+            v = c.agregar(u);
+            if (v) {
+                request.getRequestDispatcher("index.html").forward(request, response);
+            } else {
+                request.getRequestDispatcher("register.jsp").forward(request, response);
+            }
+        }
         /* TODO output your page here. You may use following sample code. */
-        out.println("<!DOCTYPE html>");
+ /*
+        u.setNombre(request.getParameter("txtNombre"));
+        u.setUserName(request.getParameter("txtUserName"));
+        u.setCorreo(request.getParameter("txtCorreo"));
+        u.setPassword(request.getParameter("txtContrasena"));*/
+
+ /*out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
-        out.println("<title>Servlet ControladorRegister</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>Servlet ControladorRegister at " + request.getContextPath() + "</h1>");
+        out.println("<script>");
+        boolean v = c.agregar(u);
+        if(v){
+            out.print("alert('el usuario de ha registrado con exito')");
+            out.print("location='index.html'");
+        }else{
+            out.print("alert('el usuario no se ha registrado con exito')");
+            out.print("location='index.html'");
+        }
+        
+        out.println("</script>");
         out.println("</body>");
-        out.println("</html>");
-
+        out.println("</html>");*/
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
