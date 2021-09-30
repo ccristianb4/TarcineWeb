@@ -15,6 +15,7 @@ public class UsuarioCrud implements Validar {
     PreparedStatement ps;
     ResultSet rs;
     int resultado;
+    private int iden;
 
     @Override
     public int validar(Usuario usu) {
@@ -71,9 +72,9 @@ public class UsuarioCrud implements Validar {
     public boolean agregar(Usuario usu) {
         boolean registrado = false;
         String sql = "INSERT INTO Registro_usuario (ID,Nombre,Username,Correo,Pasword) VALUES(?,?,?,?,?)";
-        int iden = usu.getiD();
-        while (ValidarID(iden)) {
-            iden = usu.getiD();
+        usu.setIden(usu.getiD()); 
+        while (ValidarID(usu.getIden())) {
+            usu.setIden(usu.getiD());
         }
 
         try {
@@ -83,7 +84,7 @@ public class UsuarioCrud implements Validar {
             
             con = base.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, iden);
+            ps.setInt(1, usu.getIden());
             ps.setString(2, usu.getNombre());
             ps.setString(3, usu.getUserName());
             ps.setString(4, usu.getCorreo());
@@ -98,6 +99,12 @@ public class UsuarioCrud implements Validar {
         }
         return registrado;
     }
+
+    public int getIden() {
+        return iden;
+    }
+
+   
 
     public boolean validarCorreo(String correo) {
         boolean existe = false;
@@ -148,5 +155,21 @@ public class UsuarioCrud implements Validar {
         } catch (Exception e) {
         }
         return correo;
+    }
+    public int getID(String user){
+        int id = 0;
+        String sql = "SELECT ID FROM Registro_usuario WHERE Username=?";
+        try {
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, user);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                id = rs.getInt("ID");
+                break;
+            }
+        } catch (Exception e) {
+        }
+        return id;
     }
 }

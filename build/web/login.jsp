@@ -21,7 +21,7 @@
         <div class="cuerpoFormulario" id="cuerpoFormulario">
             <form class="formulario" id="formulario" method="post" action="ingresando">
                 <h1> INICIE SESION </h1>
-                <p>Usuario:</p>
+                <p>UserName:</p>
                 <div class="texto">
                     <input type="text" class="txt" id="txtUsuario" required="" name="txtUsuario">
                 </div>

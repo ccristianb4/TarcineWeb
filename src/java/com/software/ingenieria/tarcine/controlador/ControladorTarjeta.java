@@ -4,27 +4,19 @@
  */
 package com.software.ingenieria.tarcine.controlador;
 
-import com.software.ingenieria.tarcine.modelo.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import sun.font.TrueTypeFont;
 
 /**
  *
  * @author Cristian Castro
  */
-public class CotroladorLogin extends HttpServlet {
-
-    UsuarioCrud c = new UsuarioCrud();
-    Usuario u = new Usuario();
-    TarjetaCRUD t = new TarjetaCRUD();
-    Tarjeta tar;
-    int r;
+public class ControladorTarjeta extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,41 +30,16 @@ public class CotroladorLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        String accion = request.getParameter("iniciar");
-        if (accion.equals("Iniciar Sesion")) {
-            String user = request.getParameter("txtUsuario");
-            String pass = request.getParameter("txtContrasena");
-            u.setUserName(user);
-            u.setPassword(pass);
-            r = c.validar(u);
-            if (r == 1) {
-                HttpSession sesion = request.getSession();
-                sesion.setAttribute("nombre", user);
-                sesion.setAttribute("txtcorreo", c.getCorreo(user));
-                int ident = c.getID(user);
-                System.out.println(ident);
-                if(t.validarTarjeta(ident)){
-                    tar = t.getTarjeta(ident);
-                }else{
-                    tar = new Tarjeta(ident,0);
-                    Boolean b = t.CrearTarjeta(tar);
-                    if(b){
-                        System.out.println("se ha creado la tarjeta");
-                    }else{
-                        System.out.println("no se ha creado la tarjeta");
-                    }
-                }
-                sesion.setAttribute("txtId", tar.getId());
-                sesion.setAttribute("txtCod", tar.getCod());
-                sesion.setAttribute("txtSaldo", tar.getSaldo());
-                request.getRequestDispatcher("tarcinePrincipal.jsp").forward(request, response);
-            } else {
-                request.getRequestDispatcher("index.html").forward(request, response);
-            }
-        }
- 
+        
+        
     }
+
+    @Override
+    public void init() throws ServletException {
+        super.init(); //To change body of generated methods, choose Tools | Templates.
+        
+    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

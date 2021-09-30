@@ -10,7 +10,8 @@ package com.software.ingenieria.tarcine.modelo;
  */
 public class Usuario {
 
-    public static int iD;
+    public int iD;
+    private int idem;
     private String nombre, userName, correo, password;
 
     public Usuario() {
@@ -23,7 +24,7 @@ public class Usuario {
         this.password = password;
     }
 
-    public static int getiD() {
+    public int getiD() {
         return (int) Math.floor(Math.random() * (3000 - 1000 + 1) + 1000);
     }
 
@@ -58,4 +59,13 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public int getIden() {
+        return this.idem;
+    }
+
+    public void setIden(int iden) {
+        this.idem = iden;
+    }
+    
 }
