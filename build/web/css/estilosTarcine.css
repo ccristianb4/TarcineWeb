@@ -3,7 +3,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : 29/09/2021, 6:04:06 p. m.
+    Created on : 29/09/2021, 9:27:18 p. m.
     Author     : Cristian Castro
 */
 *{
@@ -12,20 +12,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     box-sizing: border-box;
 }
 
-.cuerpoFormulario{
-    margin: 20px 30%;
-    color: black;
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url(../imagenes/fondoBlanco.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*color: white;*/
 }
-
-.formulario{
-    padding: 20px;
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 20px;
-    line-height: 60px;
-    text-align: center;
+.ContenidoInicio{
     font-size: 20px;
+    padding: 40px;
+    text-align: center;
+    margin: 10% 20%;
+    border-style: solid;
+    border-radius: 10px;
+    line-height: 300%;
+    
     background: rgba(246,41,12,1);
     background: -moz-radial-gradient(center, ellipse cover, rgba(246,41,12,1) 0%, rgba(246,41,12,1) 6%, rgba(241,111,92,1) 35%, rgba(248,80,50,1) 47%, rgba(240,47,23,1) 66%, rgba(240,47,23,1) 100%);
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(246,41,12,1)), color-stop(6%, rgba(246,41,12,1)), color-stop(35%, rgba(241,111,92,1)), color-stop(47%, rgba(248,80,50,1)), color-stop(66%, rgba(240,47,23,1)), color-stop(100%, rgba(240,47,23,1)));
@@ -36,12 +41,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6290c', endColorstr='#f02f17', GradientType=1 );
 }
 
+a{
+    color: black;
+}
+
 .btn{
-    margin: 0px;
     padding: 10px 30px 10px 30px;
     border-radius: 15px;
     font-family: sans-serif;
-    background-color: white;
     transition: all .5s;
 }
 
@@ -50,10 +57,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border-color: black;
     transform: translate(0px,-10px);
     cursor: pointer;
-    box-shadow: 0px 0px 10px 4px white;
-}
-
-.txt{
-    border-radius: 10px;
-    font-size: 20px;
+    box-shadow: 0px 0px 10px white;
 }

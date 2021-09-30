@@ -22,7 +22,7 @@ function validarEmail(){
     } else {
       valido.innerText = "incorrecto";
     }
-    valido.style.color = "red";
+    valido.style.color = "blue";
 }
 
 function validarContrasena(){
@@ -36,7 +36,7 @@ function validarContrasena(){
         aviso.style.color = "blue";
     }else if(txtcontrasena.value != txtcontrasena2.value){
         aviso.innerHTML = "Las contraseña son diferentes";
-        aviso.style.color = "red";
+        aviso.style.color = "blue";
     }else{
         aviso.innerHTML = " ";
         boton.disabled = false;

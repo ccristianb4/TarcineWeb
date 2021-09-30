@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="css/estilosRegistro.css" type="text/css" media="all">
         <%
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalide");
             response.setHeader("Pragma", "no-cache");
@@ -19,10 +20,9 @@
     <body>
         <div class="cuerpoFormulario" id="cuerpoFormulario">
             <form class="formularioAlta" id="formularioAlta" method="post" action="registrando">
-                <<h1>REGISTRO DE USUARIOS</h1>
+                <h1>REGISTRO DE USUARIOS</h1>
+                <br>
                 <label>Nombre Completo:</label> <input type="text" class="txt" id="txtNombre" required="" name="txtNombre">
-                <br>
-                <br>
                 <label>UserName:</label> <input type="text" class="txt" id="txtUserName" required="" name="txtUserName">
                 <br>
                 <br>
