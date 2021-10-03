@@ -1,0 +1,39 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url(../imagenes/fondoBlanco.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tarjeta{
+    font-size: 20px;
+    padding: 40px;
+    text-align: center;
+    margin: 10% 20%;
+    border-style: solid;
+    border-radius: 10px;
+    line-height: 300%;
+    background: rgba(33,180,226,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(33,180,226,1) 0%, rgba(33,180,226,1) 2%, rgba(113,206,239,1) 41%, rgba(183,222,237,1) 68%, rgba(183,222,237,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(33,180,226,1)), color-stop(2%, rgba(33,180,226,1)), color-stop(41%, rgba(113,206,239,1)), color-stop(68%, rgba(183,222,237,1)), color-stop(100%, rgba(183,222,237,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(33,180,226,1) 0%, rgba(33,180,226,1) 2%, rgba(113,206,239,1) 41%, rgba(183,222,237,1) 68%, rgba(183,222,237,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(33,180,226,1) 0%, rgba(33,180,226,1) 2%, rgba(113,206,239,1) 41%, rgba(183,222,237,1) 68%, rgba(183,222,237,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(33,180,226,1) 0%, rgba(33,180,226,1) 2%, rgba(113,206,239,1) 41%, rgba(183,222,237,1) 68%, rgba(183,222,237,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(33,180,226,1) 0%, rgba(33,180,226,1) 2%, rgba(113,206,239,1) 41%, rgba(183,222,237,1) 68%, rgba(183,222,237,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21b4e2', endColorstr='#b7deed', GradientType=1 );
+}

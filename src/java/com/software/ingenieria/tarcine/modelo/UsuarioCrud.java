@@ -24,16 +24,12 @@ public class UsuarioCrud implements Validar {
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
-            //ps.setString(1, usu.getUserName());
-            //ps.setString(2, usu.getPassword());
             rs = ps.executeQuery();
             while (rs.next()) {
                 if (rs.getString(3).trim().equals(usu.getUserName()) && rs.getString(5).trim().equals(usu.getPassword())) {
                     resultado = 1;
                     break;
                 }
-                //usu.setUserName(rs.getString("Username"));
-                //usu.setPassword(rs.getString("Pasword"));
             }
             con.close();
             ps.close();
@@ -78,10 +74,7 @@ public class UsuarioCrud implements Validar {
         }
 
         try {
-            if (validarCorreo(usu.getCorreo()) || validarUserName(usu.getUserName())) {
-                throw new Exception();
-            }
-            
+            if (validarCorreo(usu.getCorreo()) || validarUserName(usu.getUserName())) {throw new Exception();}
             con = base.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, usu.getIden());

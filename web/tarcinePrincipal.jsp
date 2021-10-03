@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Bienvenido</title>
-        <link rel="stylesheet" href="css/estilosTarcine.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/estilosTarcine.css" type="text/css">
         <%
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             if (session.getAttribute("nombre") == null && session.getAttribute("txtcorreo") == null) {
@@ -22,7 +22,7 @@
     <body>
         <div class="ContenidoInicio">
             <h1>Bienvenido usuario : <%= request.getSession().getAttribute("nombre")%></h1>
-            <form action="tarjetaTarcine.jsp">
+            <form action="Tarjeta" method="post">
                 <input type="submit" value="Tarjeta Tarcine" class="btn">
             </form>
             <p>su correo es ${txtcorreo}</p>

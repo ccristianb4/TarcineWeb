@@ -22,8 +22,7 @@ public class CotroladorLogin extends HttpServlet {
 
     UsuarioCrud c = new UsuarioCrud();
     Usuario u = new Usuario();
-    TarjetaCRUD t = new TarjetaCRUD();
-    Tarjeta tar;
+    
     int r;
 
     /**
@@ -41,6 +40,7 @@ public class CotroladorLogin extends HttpServlet {
         PrintWriter out = response.getWriter();
         String accion = request.getParameter("iniciar");
         if (accion.equals("Iniciar Sesion")) {
+            System.out.println("hola sdnfjsfjsfd");
             String user = request.getParameter("txtUsuario");
             String pass = request.getParameter("txtContrasena");
             u.setUserName(user);
@@ -51,21 +51,11 @@ public class CotroladorLogin extends HttpServlet {
                 sesion.setAttribute("nombre", user);
                 sesion.setAttribute("txtcorreo", c.getCorreo(user));
                 int ident = c.getID(user);
+                sesion.setAttribute("txtId2", ident);
                 System.out.println(ident);
-                if(t.validarTarjeta(ident)){
-                    tar = t.getTarjeta(ident);
-                }else{
-                    tar = new Tarjeta(ident,0);
-                    Boolean b = t.CrearTarjeta(tar);
-                    if(b){
-                        System.out.println("se ha creado la tarjeta");
-                    }else{
-                        System.out.println("no se ha creado la tarjeta");
-                    }
-                }
-                sesion.setAttribute("txtId", tar.getId());
-                sesion.setAttribute("txtCod", tar.getCod());
-                sesion.setAttribute("txtSaldo", tar.getSaldo());
+                
+                //sesion.setAttribute("txtId", tar.getId());
+                
                 request.getRequestDispatcher("tarcinePrincipal.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("index.html").forward(request, response);

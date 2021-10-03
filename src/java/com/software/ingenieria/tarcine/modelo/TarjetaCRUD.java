@@ -28,7 +28,6 @@ public class TarjetaCRUD implements ValidarT{
             ps = con.prepareStatement(sql);
             System.out.println(id);
             ps.setInt(1, id);
-            //ps.setString(2, usu.getPassword());
             rs = ps.executeQuery();
             if(rs.next()){
                 resultado = true;

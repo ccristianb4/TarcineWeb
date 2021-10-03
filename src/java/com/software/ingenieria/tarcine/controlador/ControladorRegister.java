@@ -53,31 +53,7 @@ public class ControladorRegister extends HttpServlet {
                 request.getRequestDispatcher("index.html").forward(request, response);
             }
         }
-        /* TODO output your page here. You may use following sample code. */
- 
-//        u.setNombre(request.getParameter("txtNombre"));
-//        u.setUserName(request.getParameter("txtUserName"));
-//        u.setCorreo(request.getParameter("txtCorreo"));
-//        u.setPassword(request.getParameter("txtContrasena"));
-//
-//        out.println("<!DOCTYPE html>");
-//        out.println("<html>");
-//        out.println("<head>");
-//        out.println("</head>");
-//        out.println("<body>");
-//        out.println("</body>");
-//        out.println("<script type=\"text/javascript\">");
-//        boolean v = c.agregar(u);
-//        if(v){
-//            out.print("alert('el usuario de ha registrado con exito')");
-//            out.print("location='index.html'");
-//        }else{
-//            out.print("alert('el usuario no se ha registrado con exito')");
-//            out.print("location='index.html'");
-//        }
-//        
-//        out.println("</script>");
-//        out.println("</html>");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

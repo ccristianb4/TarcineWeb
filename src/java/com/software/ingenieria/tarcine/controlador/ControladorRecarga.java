@@ -4,25 +4,18 @@
  */
 package com.software.ingenieria.tarcine.controlador;
 
-import com.software.ingenieria.tarcine.modelo.Tarjeta;
-import com.software.ingenieria.tarcine.modelo.TarjetaCRUD;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Cristian Castro
  */
-public class ControladorTarjeta extends HttpServlet {
-
-    TarjetaCRUD t = new TarjetaCRUD();
-    Tarjeta tar;
+public class ControladorRecarga extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,34 +30,19 @@ public class ControladorTarjeta extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        HttpSession sesion = request.getSession();
-        int ident = (int)sesion.getAttribute("txtId2");
-       // int ident = Integer.parseInt(ident2);
-        
-        if (t.validarTarjeta(ident)) {
-            tar = t.getTarjeta(ident);
-        } else {
-            tar = new Tarjeta(ident, 0);
-            Boolean b = t.CrearTarjeta(tar);
-            if (b) {
-                System.out.println("se ha creado la tarjeta");
-            } else {
-                System.out.println("no se ha creado la tarjeta");
-            }
-        }
-        sesion.setAttribute("txtId2", tar.getId());
-        sesion.setAttribute("txtCod2", tar.getCod());
-        sesion.setAttribute("txtSaldo2", tar.getSaldo());
-        
-        response.sendRedirect("tarjetaTarcine.jsp");
-        //request.getRequestDispatcher("tarjetaTarcine.jsp").forward(request, response);
-
-    }
-
-    @Override
-    public void init() throws ServletException {
-        super.init(); //To change body of generated methods, choose Tools | Templates.
-
+       // try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            
+           /* out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ControladorRecarga</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ControladorRecarga at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");*/
+        //}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

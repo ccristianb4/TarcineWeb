@@ -10,15 +10,29 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Tarjeta</title>
+        <link rel="stylesheet" href="css/estiloTarjeta.css" type="text/css"/>
         <%
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            //response.setHeader("Pragma", "no-cache");
+            //response.setDateHeader("Expires", 0);
         %>
     </head>
     <body>
-        <div>
-        <h1>Hello World! <p>su id es ${txtId}</p></h1>
-        <h1>Hello World! <p>su codigo es ${txtCod}</p></h1>
-        <h1>Hello World! <p>su saldo es ${txtSaldo}</p></h1>
+        <div class="tarjeta">
+        <p>su id es ${txtId2}</p>
+        <p>su codigo es ${txtCod2}</p>
+        <p>su saldo es ${txtSaldo2}</p>
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="#" onclick="cargarRecarga()">Regargar Tarjeta</a></li>
+                <li><a href="#" onclick="cargarRegister()">Registro de Usuario</a></li>
+            </ul>
+            
+        </nav>
         </div>
+        <section class="ContedidoDinamico" id="ContedidoDinamico">
+            
+        </section>
     </body>
+    <script src="js/funcionesTarjeta.js"></script>
 </html>
