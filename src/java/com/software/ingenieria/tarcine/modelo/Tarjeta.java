@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Tarjeta {
 
-    private int id, saldo;
+    private int id;private long saldo;
     private String codTarjeta;
 
     public Tarjeta(int id, int saldo) {
@@ -25,7 +25,7 @@ public class Tarjeta {
         this.id = id;
     }
 
-    public int getSaldo() {
+    public long getSaldo() {
         return saldo;
     }
 

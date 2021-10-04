@@ -94,7 +94,7 @@ public class TarjetaCRUD implements ValidarT{
             ps = con.prepareStatement(sql);
             ps.setInt(1, t.getId());
             ps.setString(2,t.getCod());
-            ps.setInt(3, t.getSaldo());
+            ps.setLong(3, t.getSaldo());
            
             int rowInsert = ps.executeUpdate();
             con.close();
@@ -106,6 +106,47 @@ public class TarjetaCRUD implements ValidarT{
         }
         return registrado;
     }
+    
+    public boolean recargarTarjeta(String cod,long saldo){
+        boolean recarga = false;
+        String sql = "UPDATE Tarjetas_Creadas SET Saldo=? WHERE CodTarjeta=?";               
+        try {
+            long sal = getSaldo(cod) + saldo;
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setLong(1, sal);
+            ps.setString(2,cod);
+            int rowInsert = ps.executeUpdate();
+            con.close();
+            ps.close();
+            rs.close();
+            recarga = true;
+        } catch (Exception e) {
+            recarga = false;
+            System.out.println("mensaje");
+            e.getMessage();
+        }
+        return recarga;
+    }
+    
+    public long getSaldo(String cod){
+        long sald = 0;
+        String sql = "SELECT * FROM Tarjetas_Creadas WHERE CodTarjeta=?;";
+        try {
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, cod);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                sald = rs.getInt("Saldo");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+        }
+        return sald;
+    }
+    
 
     @Override
     public boolean AgregarTarjeta(Tarjeta t) {

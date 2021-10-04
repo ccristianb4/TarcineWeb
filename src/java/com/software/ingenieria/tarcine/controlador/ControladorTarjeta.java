@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  * @author Cristian Castro
  */
 public class ControladorTarjeta extends HttpServlet {
-
+    private int ident;
     TarjetaCRUD t = new TarjetaCRUD();
     Tarjeta tar;
 
@@ -38,7 +38,7 @@ public class ControladorTarjeta extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession sesion = request.getSession();
-        int ident = (int)sesion.getAttribute("txtId2");
+        this.ident = (int)sesion.getAttribute("txtId2");
        // int ident = Integer.parseInt(ident2);
         
         if (t.validarTarjeta(ident)) {
@@ -64,7 +64,7 @@ public class ControladorTarjeta extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init(); //To change body of generated methods, choose Tools | Templates.
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -93,6 +93,8 @@ public class ControladorTarjeta extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession sesion = request.getSession();
+        
         processRequest(request, response);
     }
 
