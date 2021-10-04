@@ -13,6 +13,6 @@ function cargarRecarga(){
     cargarElementoDinamicamente("Recarga.jsp",document.getElementById("ContedidoDinamico"));
 }
 
-function cargarLogin(){
-    cargarElementoDinamicamente("login.jsp",document.getElementById("ContedidoDinamico"));
+function cargarInfoPeli(){
+    cargarElementoDinamicamente("peliculas",document.getElementById("ContedidoDinamico"));
 }

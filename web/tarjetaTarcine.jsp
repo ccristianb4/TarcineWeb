@@ -25,7 +25,7 @@
         <nav class="menu" id="menu">
             <ul>
                 <li><a href="#" onclick="cargarRecarga()">Recargar Tarjeta</a></li>
-                <li><a href="#" onclick="cargarRegister()">Reservar Pelicula</a></li>
+                <li><a href="#" onclick="cargarInfoPeli()">Reservar Pelicula</a></li>
             </ul>
             
         </nav>

@@ -20,6 +20,14 @@
         <servlet-name>ControladorRecarga</servlet-name>
         <servlet-class>com.software.ingenieria.tarcine.controlador.ControladorRecarga</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorOpcionPelicula</servlet-name>
+        <servlet-class>com.software.ingenieria.tarcine.controlador.ControladorOpcionPelicula</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorInfoPeliculas</servlet-name>
+        <servlet-class>com.software.ingenieria.tarcine.controlador.ControladorInfoPeliculas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorRegister</servlet-name>
         <url-pattern>/registrando</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>ControladorRecarga</servlet-name>
         <url-pattern>/Recarga</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorOpcionPelicula</servlet-name>
+        <url-pattern>/peliculas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorInfoPeliculas</servlet-name>
+        <url-pattern>/infomacionPeli</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
