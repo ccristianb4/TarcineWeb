@@ -10,10 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="css/estiloTarjeta.css" type="text/css"/>
     </head>
     <body>
-        <div class="contenedor">
-            <form action="Recarga" method="post">
+        <div class="cuerpo">
+            <form class="contenedor" action="Recarga" method="post">
                 <p>Digite el valor a recargar </p>
                 <input type="number" class="txt" id="txtValor" required="" name="txtValor">
                 <input type="submit" value="Recargar" class="btn" name="Recargar">

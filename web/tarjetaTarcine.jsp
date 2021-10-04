@@ -24,8 +24,8 @@
         <p>su saldo es ${txtSaldo2}</p>
         <nav class="menu" id="menu">
             <ul>
-                <li><a href="#" onclick="cargarRecarga()">Regargar Tarjeta</a></li>
-                <li><a href="#" onclick="cargarRegister()">Registro de Usuario</a></li>
+                <li><a href="#" onclick="cargarRecarga()">Recargar Tarjeta</a></li>
+                <li><a href="#" onclick="cargarRegister()">Reservar Pelicula</a></li>
             </ul>
             
         </nav>
