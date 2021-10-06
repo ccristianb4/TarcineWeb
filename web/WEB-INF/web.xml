@@ -28,6 +28,10 @@
         <servlet-name>ControladorInfoPeliculas</servlet-name>
         <servlet-class>com.software.ingenieria.tarcine.controlador.ControladorInfoPeliculas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorActualizacion</servlet-name>
+        <servlet-class>com.software.ingenieria.tarcine.controlador.ControladorActualizacion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorRegister</servlet-name>
         <url-pattern>/registrando</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ControladorInfoPeliculas</servlet-name>
         <url-pattern>/infomacionPeli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorActualizacion</servlet-name>
+        <url-pattern>/Actualizacion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

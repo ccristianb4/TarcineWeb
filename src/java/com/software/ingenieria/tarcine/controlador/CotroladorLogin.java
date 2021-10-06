@@ -22,7 +22,7 @@ public class CotroladorLogin extends HttpServlet {
 
     UsuarioCrud c = new UsuarioCrud();
     Usuario u = new Usuario();
-    
+
     int r;
 
     /**
@@ -37,31 +37,47 @@ public class CotroladorLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        String accion = request.getParameter("iniciar");
-        if (accion.equals("Iniciar Sesion")) {
-            System.out.println("hola sdnfjsfjsfd");
-            String user = request.getParameter("txtUsuario");
-            String pass = request.getParameter("txtContrasena");
-            u.setUserName(user);
-            u.setPassword(pass);
-            r = c.validar(u);
-            if (r == 1) {
-                HttpSession sesion = request.getSession();
-                sesion.setAttribute("nombre", user);
-                sesion.setAttribute("txtcorreo", c.getCorreo(user));
-                int ident = c.getID(user);
-                sesion.setAttribute("txtId2", ident);
-                System.out.println(ident);
-                
-                //sesion.setAttribute("txtId", tar.getId());
-                
-                request.getRequestDispatcher("tarcinePrincipal.jsp").forward(request, response);
-            } else {
-                request.getRequestDispatcher("index.html").forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            String accion = request.getParameter("iniciar");
+            if (accion.equals("Iniciar Sesion")) {
+                System.out.println("hola sdnfjsfjsfd");
+                String user = request.getParameter("txtUsuario");
+                String pass = request.getParameter("txtContrasena");
+                u.setUserName(user);
+                u.setPassword(pass);
+                r = c.validar(u);
+                if (r == 1) {
+                    HttpSession sesion = request.getSession();
+                    sesion.setAttribute("nombre", user);
+                    sesion.setAttribute("txtcorreo", c.getCorreo(user));
+                    int ident = c.getID(user);
+                    sesion.setAttribute("txtId2", ident);
+                    sesion.setAttribute("txtNombreC", c.getNombreC(user));
+                    System.out.println(ident);
+//                try (PrintWriter out = response.getWriter()) {
+//                    /* TODO output your page here. You may use following sample code. */
+//                    out.println("<!DOCTYPE html>");
+//                    out.println("<html>");
+//                    out.println("<head>");
+//                    out.println("<title>Servlet prueba</title>");
+//                    out.println("</head>");
+//                    out.println("<body>");
+//                    //out.println("<h1>Servlet prueba at " + request.getContextPath() + "</h1>");
+//                    out.println("</body>");
+//                    out.println("<script src=\"js/alertas.js\"></script>");
+//                    out.println("</html>");
+//                }
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<script src=\"js/alertas.js\"></script>");
+                    out.println("</html>");
+                    request.getRequestDispatcher("tarcinePrincipal.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("index.html").forward(request, response);
+                }
             }
         }
- 
+//l
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -149,6 +149,22 @@ public class UsuarioCrud implements Validar {
         }
         return correo;
     }
+    public String getNombreC(String user){
+        String nombre = "";
+        String sql = "SELECT Nombre FROM Registro_usuario WHERE Username=?";
+        try {
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, user);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                nombre = rs.getString("Nombre");
+                break;
+            }
+        } catch (Exception e) {
+        }
+        return nombre;
+    }
     public int getID(String user){
         int id = 0;
         String sql = "SELECT ID FROM Registro_usuario WHERE Username=?";

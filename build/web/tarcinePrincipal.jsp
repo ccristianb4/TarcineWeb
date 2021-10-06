@@ -23,12 +23,14 @@
         <div class="ContenidoInicio">
             <h1>Bienvenido usuario : <%= request.getSession().getAttribute("nombre")%></h1>
             <form action="Tarjeta" method="post">
-                <input type="submit" value="Tarjeta Tarcine" class="btn">
+                <input type="submit" value="Tarjeta Tarcine" class="btn"><input type="button" value="Actualizar Datos" class="btn" onclick="sendDirection()">
             </form>
+            
             <p>su correo es ${txtcorreo}</p>
             <form action="CerrarSesion">
                 <input type="submit" value="Cerrar session" class="btn">
             </form>
         </div>
     </body>
+    <script src="js/funcionesTarcinePrincipal.js"></script>
 </html>

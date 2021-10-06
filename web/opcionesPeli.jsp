@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="css/estiloOpcionPeli.css" type="text/css" media="all">
         <%
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             //response.setHeader("Pragma", "no-cache");
@@ -20,16 +21,16 @@
     </head>
     <body>
         <div>
-            <form action="infomacionPeli" method="post">
+            <form class="cuerpoFormulario" action="infomacionPeli" method="post">
                 <p>Opciones de peliculas</p>
-                <select name="listemails[]">
+                <select name="listemails[]" class="txt">
                     <%
                         for (int i = 0; i < nomb.size(); i++) {
                     %>
-                    <option value="<%=nomb.get(i) %>" ><%=nomb.get(i)%></option>
+                    <option value="<%=nomb.get(i) %>" class="txt"><%=nomb.get(i)%></option>
                     <%}%>
                 </select>
-                <input type="submit" name="Reservar" value="Reservar">
+                <input type="submit" name="Reservar" value="Reservar" class="btn">
             </form>
         </div>
     </body>
