@@ -29,7 +29,6 @@
             </p>
             <nav class="menu" id="menu">
             <ul>
-                <li><a href="#" onclick="cargarFormulario()">Actualizar Datos</a></li>
                 <li><a href="#" onclick="cargarRegister()">Reservar Boletas</a></li>
             </ul>
 

@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Cristian%20Castro/OneDrive/Escritorio/Universidad%20Java%20EXP/TarcineSoftware/web/actualizarDatos.jsp</file>
+            <file>file:/C:/Users/Cristian%20Castro/OneDrive/Escritorio/Universidad%20Java%20EXP/TarcineSoftware/src/java/com/software/ingenieria/tarcine/controlador/ControladorActualizacion.java</file>
+            <file>file:/C:/Users/Cristian%20Castro/OneDrive/Escritorio/Universidad%20Java%20EXP/TarcineSoftware/src/java/com/software/ingenieria/tarcine/modelo/Usuario.java</file>
+            <file>file:/C:/Users/Cristian%20Castro/OneDrive/Escritorio/Universidad%20Java%20EXP/TarcineSoftware/web/infoPelicula.jsp</file>
+            <file>file:/C:/Users/Cristian%20Castro/OneDrive/Escritorio/Universidad%20Java%20EXP/TarcineSoftware/src/java/com/software/ingenieria/tarcine/modelo/UsuarioCrud.java</file>
+            <file>file:/C:/Users/Cristian%20Castro/OneDrive/Escritorio/Universidad%20Java%20EXP/TarcineSoftware/web/tarjetaTarcine.jsp</file>
+        </group>
     </open-files>
 </project-private>

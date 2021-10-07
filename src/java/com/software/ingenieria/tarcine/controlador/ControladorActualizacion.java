@@ -4,6 +4,8 @@
  */
 package com.software.ingenieria.tarcine.controlador;
 
+import com.software.ingenieria.tarcine.modelo.Usuario;
+import com.software.ingenieria.tarcine.modelo.UsuarioCrud;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,7 +19,8 @@ import javax.servlet.http.HttpSession;
  * @author Cristian Castro
  */
 public class ControladorActualizacion extends HttpServlet {
-
+    Usuario usu;
+    UsuarioCrud crud = new UsuarioCrud();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,7 +34,26 @@ public class ControladorActualizacion extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        response.sendRedirect("actualizarDatos.jsp");
+        String accion = request.getParameter("Actualizar");
+        if (accion.equals("Actualizar")) {
+            String nombreC = request.getParameter("txtNombreA");
+            String userName = request.getParameter("txtUserNameA");
+            String email = request.getParameter("txtCorreoA");
+            String pass = request.getParameter("txtContrasenaA");
+            usu = new Usuario(nombreC, userName, email, pass);
+            int i = Integer.parseInt(String.valueOf(session.getAttribute("txtId2")));
+            usu.setIden(i);
+            System.out.println("i : "+usu.getIden());
+            crud.actualizarDatos(usu);
+            session.setAttribute("txtId2", i);
+            session.setAttribute("txtNombreC", nombreC);
+            session.setAttribute("nombre", userName);
+            session.setAttribute("txtcorreo", email);
+            session.setAttribute("txtPass", pass);
+            response.sendRedirect("tarcinePrincipal.jsp");
+        }
+
+        //response.sendRedirect("actualizarDatos.jsp");
 //        try (PrintWriter out = response.getWriter()) {
 //            /* TODO output your page here. You may use following sample code. */
 //            out.println("<!DOCTYPE html>");

@@ -11,10 +11,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/estiloActualizarDatos.css" type="text/css">
         <title>Actualizacion de Datos</title>
+        <%
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            //response.setHeader("Pragma", "no-cache");
+            //response.setDateHeader("Expires", 0);
+        %>
     </head>
     <body>
         <div class="cuerpoFormulario">
-            <form class="formulario" action="" method="post">
+            <form class="formulario" action="Actualizacion" method="post">
                 <h1>Datos de Usuario</h1>
                 <p>ID:</p>
                 <div class="texto">
@@ -34,7 +39,7 @@
                 </div>
                 <p>Contraseña</p>
                 <div class="texto">
-                    <input type="password" class="txt" id="txtContrasenaA" required="" name="txtContrasenaA">
+                    <input type="password" class="txt" id="txtContrasenaA" required="" name="txtContrasenaA" value="${txtPass}">
                 </div>
                 <input type="submit" class="btn" name="Actualizar" value="Actualizar">
             </form>

@@ -115,6 +115,28 @@ public class UsuarioCrud implements Validar {
         }
         return existe;
     }
+    
+    public void actualizarDatos(Usuario usu){
+        String sql = "UPDATE Registro_usuario SET Nombre=?, Username=?, Correo=?, Pasword=? WHERE ID=?";
+        try {
+            System.out.println("id : "+usu.getIden());
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usu.getNombre());
+            ps.setString(2, usu.getUserName());
+            ps.setString(3, usu.getCorreo());
+            ps.setString(4, usu.getPassword());
+            System.out.println("id : "+usu.getIden());
+            ps.setInt(5, usu.getIden());
+            int rowInsert = ps.executeUpdate();
+            con.close();
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("mensaje");
+            e.getMessage();
+        }
+    }
 
     public boolean validarUserName(String user) {
         boolean existe = false;

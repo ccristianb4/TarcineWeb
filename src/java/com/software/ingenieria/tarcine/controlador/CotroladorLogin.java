@@ -53,6 +53,7 @@ public class CotroladorLogin extends HttpServlet {
                     int ident = c.getID(user);
                     sesion.setAttribute("txtId2", ident);
                     sesion.setAttribute("txtNombreC", c.getNombreC(user));
+                    sesion.setAttribute("txtPass", pass);
                     System.out.println(ident);
 //                try (PrintWriter out = response.getWriter()) {
 //                    /* TODO output your page here. You may use following sample code. */
