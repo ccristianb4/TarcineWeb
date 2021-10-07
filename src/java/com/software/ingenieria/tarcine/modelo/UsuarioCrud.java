@@ -203,4 +203,19 @@ public class UsuarioCrud implements Validar {
         }
         return id;
     }
+    public Usuario getUsuario(int id){
+        Usuario usu = null;
+        String sql = "SELECT * FROM Registro_usuario WHERE ID=?";
+        try {
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                usu = new Usuario(rs.getString("Nombre"), rs.getString("Username"), rs.getString("Correo"), rs.getString("Pasword"));
+            }
+        } catch (Exception e) {
+        }
+        return usu;
+    }
 }

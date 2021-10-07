@@ -128,6 +128,40 @@ public class TarjetaCRUD implements ValidarT{
         }
         return recarga;
     }
+    public void reserva(int i){
+        String sql = "UPDATE Tarjetas_Creadas SET Saldo=? WHERE ID=?";               
+        try {
+            long sal = getSaldo2(i) - 8000;
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setLong(1, sal);
+            ps.setInt(2,i);
+            int rowInsert = ps.executeUpdate();
+            con.close();
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("mensaje");
+            e.getMessage();
+        }
+    }
+    public long getSaldo2(int id){
+        long sald = 0;
+        String sql = "SELECT * FROM Tarjetas_Creadas WHERE ID=?;";
+        try {
+            con = base.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                sald = rs.getInt("Saldo");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+        }
+        return sald;
+    }
     
     public long getSaldo(String cod){
         long sald = 0;

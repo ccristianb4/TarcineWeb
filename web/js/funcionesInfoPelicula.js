@@ -11,7 +11,7 @@ function cargarElementoDinamicamente(url,elemento){
 function cargarFormulario(){
     cargarElementoDinamicamente("actualizarDatos.jsp",document.getElementById("ContedidoDinamico"));
 }
-function cargarLogin(){
-    cargarElementoDinamicamente("login.jsp",document.getElementById("ContedidoDinamico"));
+function cargarAnuncio(){
+    cargarElementoDinamicamente("anuncio.jsp",document.getElementById("ContedidoDinamico"));
 }
 

@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Informacion de la pelicula</title>
         <link rel="stylesheet" href="css/estiloInfoPelicula.css" type="text/css" media="all">
 
         <%
@@ -29,7 +29,7 @@
             </p>
             <nav class="menu" id="menu">
             <ul>
-                <li><a href="#" onclick="cargarRegister()">Reservar Boletas</a></li>
+                <li><a href="#" onclick="cargarAnuncio()">Reservar Boletas</a></li>
             </ul>
 
         </nav>
