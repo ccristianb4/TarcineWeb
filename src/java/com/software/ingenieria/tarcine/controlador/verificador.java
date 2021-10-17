@@ -41,7 +41,7 @@ public class verificador extends HttpServlet {
             if(tar.getSaldo() >=8000){
                 response.sendRedirect("factura");
             }else{
-                response.sendRedirect("");
+                response.sendRedirect("errorReserva.jsp");
             }
         }
 //        try (PrintWriter out = response.getWriter()) {

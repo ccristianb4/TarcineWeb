@@ -24,7 +24,7 @@ public class PeliculaCRUD implements ValidarP{
     @Override
     public List getNombres() {
         List<String> nombres = new ArrayList<>();
-        String sql = "SELECT Nombre FROM Peliculas;";
+        String sql = "SELECT Nombre FROM dbo.Peliculas;";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -43,7 +43,7 @@ public class PeliculaCRUD implements ValidarP{
     }
     public Pelicula getPelicula(String nombre){
         Pelicula pelicula = null;
-        String sql = "SELECT * FROM Peliculas WHERE Nombre=?;";
+        String sql = "SELECT * FROM dbo.Peliculas WHERE Nombre=?;";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);

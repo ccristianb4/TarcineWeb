@@ -47,7 +47,7 @@ body{
 }
 
 .btn:hover{
-    transition: all .5s;
+    transition: .5s;
     border-color: black;
     transform: translate(0px,-10px);
     cursor: pointer;

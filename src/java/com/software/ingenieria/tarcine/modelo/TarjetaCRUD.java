@@ -22,7 +22,7 @@ public class TarjetaCRUD implements ValidarT{
     @Override
     public boolean validarTarjeta(int id) {
         boolean resultado = false;
-        String sql = "SELECT ID FROM Tarjetas_Creadas WHERE ID=?;";
+        String sql = "SELECT ID FROM dbo.Tarjetas_Creadas WHERE ID=?;";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -43,7 +43,7 @@ public class TarjetaCRUD implements ValidarT{
         return resultado;
     }
     public Tarjeta getTarjeta(int id){
-        String sql = "SELECT * FROM Tarjetas_Creadas WHERE ID=?;";
+        String sql = "SELECT * FROM dbo.Tarjetas_Creadas WHERE ID=?;";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -66,7 +66,7 @@ public class TarjetaCRUD implements ValidarT{
     }
     public boolean validarCod(String cod){
         boolean existe = false;
-        String sql = "SELECT * FROM Tarjetas_Creadas WHERE CodTarjeta=?;";
+        String sql = "SELECT * FROM dbo.Tarjetas_Creadas WHERE CodTarjeta=?;";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -83,7 +83,7 @@ public class TarjetaCRUD implements ValidarT{
     }
     public boolean CrearTarjeta(Tarjeta t){
         boolean registrado = false;
-        String sql = "INSERT INTO Tarjetas_Creadas(ID,CodTarjeta,Saldo) VALUES(?,?,?)";
+        String sql = "INSERT INTO dbo.Tarjetas_Creadas(ID,CodTarjeta,Saldo) VALUES(?,?,?)";
         t.generadorCodTarjeta();
         while (validarCod(t.getCod())) {
             t.generadorCodTarjeta();
@@ -109,7 +109,7 @@ public class TarjetaCRUD implements ValidarT{
     
     public boolean recargarTarjeta(String cod,long saldo){
         boolean recarga = false;
-        String sql = "UPDATE Tarjetas_Creadas SET Saldo=? WHERE CodTarjeta=?";               
+        String sql = "UPDATE dbo.Tarjetas_Creadas SET Saldo=? WHERE CodTarjeta=?";               
         try {
             long sal = getSaldo(cod) + saldo;
             con = base.getConnection();
@@ -129,7 +129,7 @@ public class TarjetaCRUD implements ValidarT{
         return recarga;
     }
     public void reserva(int i){
-        String sql = "UPDATE Tarjetas_Creadas SET Saldo=? WHERE ID=?";               
+        String sql = "UPDATE dbo.Tarjetas_Creadas SET Saldo=? WHERE ID=?";               
         try {
             long sal = getSaldo2(i) - 8000;
             con = base.getConnection();
@@ -147,7 +147,7 @@ public class TarjetaCRUD implements ValidarT{
     }
     public long getSaldo2(int id){
         long sald = 0;
-        String sql = "SELECT * FROM Tarjetas_Creadas WHERE ID=?;";
+        String sql = "SELECT * FROM dbo.Tarjetas_Creadas WHERE ID=?;";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -165,7 +165,7 @@ public class TarjetaCRUD implements ValidarT{
     
     public long getSaldo(String cod){
         long sald = 0;
-        String sql = "SELECT * FROM Tarjetas_Creadas WHERE CodTarjeta=?;";
+        String sql = "SELECT * FROM dbo.Tarjetas_Creadas WHERE CodTarjeta=?;";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);

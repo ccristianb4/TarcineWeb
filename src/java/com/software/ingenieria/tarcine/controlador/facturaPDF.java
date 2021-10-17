@@ -33,6 +33,8 @@ import jdk.nashorn.internal.runtime.regexp.joni.EncodingHelper;
 public class facturaPDF extends HttpServlet {
     UsuarioCrud crud = new UsuarioCrud();
     TarjetaCRUD crudt = new TarjetaCRUD();
+    PeliculaCRUD crudP = new PeliculaCRUD();
+    
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -51,10 +53,13 @@ public class facturaPDF extends HttpServlet {
         int i = Integer.parseInt(String.valueOf(sesion.getAttribute("txtId2")));
         Usuario usu = crud.getUsuario(i);
         Tarjeta tar = crudt.getTarjeta(i);
+        String nombreP = String.valueOf(sesion.getAttribute("txtNombrePeli"));
+        Pelicula peli = crudP.getPelicula(nombreP);
         crudt.reserva(i);
         long saldo = crudt.getSaldo(tar.getCod());
         sesion.setAttribute("txtSaldo2", saldo);
         
+        System.out.println(nombreP);
         try {
             Document documento = new Document();
             PdfWriter.getInstance(documento, salida);
@@ -69,7 +74,8 @@ public class facturaPDF extends HttpServlet {
             
             String factura = "Datos Personales"+ "\n\n id : "+i+"\n nombre Completo : "+usu.getNombre()+"\n UserName : "+usu.getUserName()
                     +"\n Correo Electronico : "+usu.getCorreo()+
-                    "\n\n Datos Tarjeta Tarcine"+"\n\n Codigo Tarjeta : "+tar.getCod()+"\n Saldo : "+saldo;
+                    "\n\n Datos Tarjeta Tarcine"+"\n\n Codigo Tarjeta : "+tar.getCod()+"\n Saldo : "+saldo +"\n\n Datos de la Pelicula"
+                    +"\n\n Nombre de la Pelicula : "+peli.getNombre()+"\n Duracion : "+peli.getDuracion()+"\n Genero : "+peli.getGenero()+"\n Clasificacion : "+peli.getClasificacion();
             Paragraph  par2 = new Paragraph();
             Font fontDescripcion = new Font(Font.FontFamily.TIMES_ROMAN,12,Font.NORMAL,BaseColor.BLACK);
             par2.add(new Phrase(factura,fontDescripcion));

@@ -28,9 +28,8 @@
                 <b>Clasificacion : </b>${txtClasificacion}
             </p>
             <nav class="menu" id="menu">
-            <ul>
-                <li><a href="#" onclick="cargarAnuncio()">Reservar Boletas</a></li>
-            </ul>
+                <input type="button" name="ReservarBoletas" value="Reservar Boletas" class="btn" onclick="cargarAnuncio()">
+                <input type="button" name="volver" value="volver" class="btn" onclick="sendPrincipal1()">
 
         </nav>
         </div>
@@ -39,4 +38,5 @@
         </section>
     </body>
     <script src="js/funcionesInfoPelicula.js"></script>
+    <script src="js/prueba1.js" type="text/javascript"></script>
 </html>

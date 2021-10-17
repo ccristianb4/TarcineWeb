@@ -19,20 +19,22 @@
     </head>
     <body>
         <div class="tarjeta">
-        <p>su id es ${txtId2}</p>
-        <p>su codigo es ${txtCod2}</p>
-        <p>su saldo es ${txtSaldo2}</p>
-        <nav class="menu" id="menu">
-            <ul>
-                <li><a href="#" onclick="cargarRecarga()">Recargar Tarjeta</a></li>
-                <li><a href="#" onclick="cargarInfoPeli()">Reservar Pelicula</a></li>
-            </ul>
-            
-        </nav>
+            <p>su id es ${txtId2}</p>
+            <p>su codigo es ${txtCod2}</p>
+            <p>su saldo es ${txtSaldo2}</p>
+            <nav class="menu" id="menu">
+
+                <ul>
+                    <li><a href="#" onclick="cargarRecarga()">Recargar Tarjeta</a></li>
+                    <li><a href="#" onclick="cargarInfoPeli()">Reservar Pelicula</a></li>
+                </ul>
+
+            </nav>
         </div>
         <section class="ContedidoDinamico" id="ContedidoDinamico">
-            
+
         </section>
     </body>
     <script src="js/funcionesTarjeta.js"></script>
+    <!-- comment <script src="js/funcionesTarcinePrincipal.js" type="text/javascript"></script>-->
 </html>

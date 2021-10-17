@@ -3,9 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/javascript.js to edit this template
  */
 
-function sendDirection(){
-    location.replace("actualizarDatos.jsp");//Actualizacion
+//alert("bhusdvdskbsdkjgsdgjkdsgjksdgjkdsgkjfd")
+function sendPrincipal1(){
+    location.replace("tarcinePrincipal.jsp");
 }
-
-
-

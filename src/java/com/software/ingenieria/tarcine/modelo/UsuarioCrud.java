@@ -20,7 +20,7 @@ public class UsuarioCrud implements Validar {
     @Override
     public int validar(Usuario usu) {
         resultado = 0;
-        String sql = "SELECT * FROM Registro_usuario;";
+        String sql = "SELECT * FROM dbo.Registro_usuario;";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -47,7 +47,7 @@ public class UsuarioCrud implements Validar {
 
     public boolean ValidarID(int id) {
         boolean existe = false;
-        String sql = "SELECT * FROM Registro_usuario WHERE ID=?;";
+        String sql = "SELECT * FROM dbo.Registro_usuario WHERE ID=?;";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -67,7 +67,7 @@ public class UsuarioCrud implements Validar {
     @Override
     public boolean agregar(Usuario usu) {
         boolean registrado = false;
-        String sql = "INSERT INTO Registro_usuario (ID,Nombre,Username,Correo,Pasword) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO dbo.Registro_usuario (ID,Nombre,Username,Correo,Pasword) VALUES(?,?,?,?,?)";
         usu.setIden(usu.getiD()); 
         while (ValidarID(usu.getIden())) {
             usu.setIden(usu.getiD());
@@ -101,7 +101,7 @@ public class UsuarioCrud implements Validar {
 
     public boolean validarCorreo(String correo) {
         boolean existe = false;
-        String sql = "SELECT Correo FROM Registro_usuario WHERE Correo=?";
+        String sql = "SELECT Correo FROM dbo.Registro_usuario WHERE Correo=?";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -117,7 +117,7 @@ public class UsuarioCrud implements Validar {
     }
     
     public void actualizarDatos(Usuario usu){
-        String sql = "UPDATE Registro_usuario SET Nombre=?, Username=?, Correo=?, Pasword=? WHERE ID=?";
+        String sql = "UPDATE dbo.Registro_usuario SET Nombre=?, Username=?, Correo=?, Pasword=? WHERE ID=?";
         try {
             System.out.println("id : "+usu.getIden());
             con = base.getConnection();
@@ -140,7 +140,7 @@ public class UsuarioCrud implements Validar {
 
     public boolean validarUserName(String user) {
         boolean existe = false;
-        String sql = "SELECT Username FROM Registro_usuario WHERE Username=?";
+        String sql = "SELECT Username FROM dbo.Registro_usuario WHERE Username=?";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -157,7 +157,7 @@ public class UsuarioCrud implements Validar {
     
     public String getCorreo(String user){
         String correo = "";
-        String sql = "SELECT Correo FROM Registro_usuario WHERE Username=?";
+        String sql = "SELECT Correo FROM dbo.Registro_usuario WHERE Username=?";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -173,7 +173,7 @@ public class UsuarioCrud implements Validar {
     }
     public String getNombreC(String user){
         String nombre = "";
-        String sql = "SELECT Nombre FROM Registro_usuario WHERE Username=?";
+        String sql = "SELECT Nombre FROM dbo.Registro_usuario WHERE Username=?";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -189,7 +189,7 @@ public class UsuarioCrud implements Validar {
     }
     public int getID(String user){
         int id = 0;
-        String sql = "SELECT ID FROM Registro_usuario WHERE Username=?";
+        String sql = "SELECT ID FROM dbo.Registro_usuario WHERE Username=?";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);
@@ -205,7 +205,7 @@ public class UsuarioCrud implements Validar {
     }
     public Usuario getUsuario(int id){
         Usuario usu = null;
-        String sql = "SELECT * FROM Registro_usuario WHERE ID=?";
+        String sql = "SELECT * FROM dbo.Registro_usuario WHERE ID=?";
         try {
             con = base.getConnection();
             ps = con.prepareStatement(sql);

@@ -42,7 +42,9 @@
                     <input type="password" class="txt" id="txtContrasenaA" required="" name="txtContrasenaA" value="${txtPass}">
                 </div>
                 <input type="submit" class="btn" name="Actualizar" value="Actualizar">
+                <input type="button" class="btn" name="volver" value="volver" onclick="sendPrincipal1()">
             </form>
         </div>
     </body>
+    <script src="js/prueba1.js" type="text/javascript"></script>
 </html>
